@@ -1,61 +1,46 @@
-<H3>Name</H3>
-<H3>Register no.</H3>
-<H3>Date</H3>
-<H3>Experiment No. 2 </H3>
-## Implementation of Perceptron for Binary Classification
-# AIM:
-To implement a perceptron for classification using Python<BR>
+<H3>ENTER YOUR NAME: POOJA A</H3>
+<H3>ENTER YOUR REGISTER NO.: 212222240072</H3>
+<H3>EX. NO.3</H3>
+<H3>DATE:02.04.2024</H3>
+<H2 aligh = center> Implementation of MLP for a non-linearly separable data</H2>
+<h3>Aim:</h3>
+To implement a perceptron for classification using Python
+<H3>Theory:</H3>
+Exclusive or is a logical operation that outputs true when the inputs differ.For the XOR gate, the TRUTH table will be as follows:
 
-# EQUIPMENTS REQUIRED:
-Hardware – PCs
-Anaconda – Python 3.7 Installation / Google Colab /Jupiter Notebook
+XOR truth table
+![Img1](https://user-images.githubusercontent.com/112920679/195774720-35c2ed9d-d484-4485-b608-d809931a28f5.gif)
 
-# RELATED THEORETICAL CONCEPT:
-A Perceptron is a basic learning algorithm invented in 1959 by Frank Rosenblatt. It is meant to mimic the working logic of a biological neuron. The human brain is basically a collection of many interconnected neurons. Each one receives a set of inputs, applies some sort of computation on them and propagates the result to other neurons.<BR>
-A Perceptron is an algorithm used for supervised learning of binary classifiers.Given a sample, the neuron classifies it by assigning a weight to its features. To accomplish this a Perceptron undergoes two phases: training and testing. During training phase weights are initialized to an arbitrary value. Perceptron is then asked to evaluate a sample and compare its decision with the actual class of the sample.If the algorithm chose the wrong class weights are adjusted to better match that particular sample. This process is repeated over and over to finely optimize the biases. After that, the algorithm is ready to be tested against a new set of completely unknown samples to evaluate if the trained model is general enough to cope with real-world samples.<BR>
-The important Key points to be focused to implement a perceptron:
-Models have to be trained with a high number of already classified samples. It is difficult to know a priori this number: a few dozen may be enough in very simple cases while in others thousands or more are needed.
-Data is almost never perfect: a preprocessing phase has to take care of missing features, uncorrelated data and, as we are going to see soon, scaling.<BR>
-Perceptron requires linearly separable samples to achieve convergence.
-The math of Perceptron. <BR>
-If we represent samples as vectors of size n, where ‘n’ is the number of its features, a Perceptron can be modeled through the composition of two functions. The first one f(x) maps the input features  ‘x’  vector to a scalar value, shifted by a bias ‘b’
-f(x)=w.x+b
- <BR>
-A threshold function, usually Heaviside or sign functions, maps the scalar value to a binary output:
+XOR is a classification problem, as it renders binary distinct outputs. If we plot the INPUTS vs OUTPUTS for the XOR gate, as shown in figure below
 
- 
+![Img2](https://user-images.githubusercontent.com/112920679/195774898-b0c5886b-3d58-4377-b52f-73148a3fe54d.gif)
 
+The graph plots the two inputs corresponding to their output. Visualizing this plot, we can see that it is impossible to separate the different outputs (1 and 0) using a linear equation.To separate the two outputs using linear equation(s), it is required to draw two separate lines as shown in figure below:
+![Img 3](https://user-images.githubusercontent.com/112920679/195775012-74683270-561b-4a3a-ac62-cf5ddfcf49ca.gif)
+For a problem resembling the outputs of XOR, it was impossible for the machine to set up an equation for good outputs. This is what led to the birth of the concept of hidden layers which are extensively used in Artificial Neural Networks. The solution to the XOR problem lies in multidimensional analysis. We plug in numerous inputs in various layers of interpretation and processing, to generate the optimum outputs.
+The inner layers for deeper processing of the inputs are known as hidden layers. The hidden layers are not dependent on any other layers. This architecture is known as Multilayer Perceptron (MLP).
+![Img 4](https://user-images.githubusercontent.com/112920679/195775183-1f64fe3d-a60e-4998-b4f5-abce9534689d.gif)
+The number of layers in MLP is not fixed and thus can have any number of hidden layers for processing. In the case of MLP, the weights are defined for each hidden layer, which transfers the signal to the next proceeding layer.Using the MLP approach lets us dive into more than two dimensions, which in turn lets us separate the outputs of XOR using multidimensional equations.Each hidden unit invokes an activation function, to range down their output values to 0 or The MLP approach also lies in the class of feed-forward Artificial Neural Network, and thus can only communicate in one direction. MLP solves the XOR problem efficiently by visualizing the data points in multi-dimensions and thus constructing an n-variable equation to fit in the output values using back propagation algorithm
 
-<img width="283" alt="image" src="https://github.com/Lavanyajoyce/Ex-2--NN/assets/112920679/c6d2bd42-3ec1-42c1-8662-899fa450f483">
+<h3>Algorithm :</H3>
 
+Step 1 : Initialize the input patterns for XOR Gate<BR>
+Step 2: Initialize the desired output of the XOR Gate<BR>
+Step 3: Initialize the weights for the 2 layer MLP with 2 Hidden neuron  and 1 output neuron<BR>
+Step 3: Repeat the  iteration  until the losses become constant and  minimum<BR>
+    (i)  Compute the output using forward pass output<BR>
+    (ii) Compute the error<BR>
+	(iii) Compute the change in weight ‘dw’ by using backward progatation algorithm. <BR>
+    (iv) Modify the weight as per delta rule.<BR>
+    (v)  Append the losses in a list <BR>
+Step 4 : Test for the XOR patterns.
 
-Indeed if the neuron output is exactly zero it cannot be assumed that the sample belongs to the first sample since it lies on the boundary between the two classes. Nonetheless for the sake of simplicity,ignore this situation.<BR>
+<H3>Program:</H3>
+Insert your code here
 
+<H3>Output:</H3>
 
-# ALGORITHM:
-STEP 1: Importing the libraries<BR>
-STEP 2:Importing the dataset<BR>
-STEP 3:Plot the data to verify the linear separable dataset and consider only two classes<BR>
-STEP 4:Convert the data set to scale the data to uniform range by using Feature scaling<BR>
-STEP 4:Split the dataset for training and testing<BR>
-STEP 5:Define the input vector ‘X’ from the training dataset<BR>
-STEP 6:Define the desired output vector ‘Y’ scaled to +1 or -1 for two classes C1 and C2<BR>
-STEP 7:Assign Initial Weight vector ‘W’ as 0 as the dimension of ‘X’
-STEP 8:Assign the learning rate<BR>
-STEP 9:For ‘N ‘ iterations ,do the following:<BR>
-        v(i) = w(i)*x(i)<BR>
-         
-        W (i+i)= W(i) + learning_rate*(y(i)-t(i))*x(i)<BR>
-STEP 10:Plot the error for each iteration <BR>
-STEP 11:Print the accuracy<BR>
-# PROGRAM:
-    ''' Insert your code here '''
+Show your results here
 
-# OUTPUT:
-
-    ''' Show your result '''
-
-# RESULT:
- Thus, a single layer perceptron model is implemented using python to classify Iris data set.
-
- 
+<H3> Result:</H3>
+Thus, XOR classification problem can be solved using MLP in Python 
