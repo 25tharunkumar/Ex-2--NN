@@ -44,7 +44,7 @@ STEP 10:Plot the error for each iteration <BR>
 STEP 11:Print the accuracy<BR>
 ### PROGRAM:
 ```Python
-import numpy as np                                                      Developed By: Tharun kumar.M
+import numpy as np                                                      Developed By: Tharunkumar.M
 import pandas as pd                                                     Register No: 212222100056
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
